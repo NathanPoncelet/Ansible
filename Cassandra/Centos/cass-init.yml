@@ -1,0 +1,28 @@
+#Nathan Poncelet
+---
+-hosts:cass*
+
+ vars_files:
+     - vars/cassDT.yml
+ tasks:
+   #Installs all packages
+   -name : Setup the base
+    yum: name={{item}} state=present
+    with_items:
+	-curl
+	-vim
+	-sudo
+	-java7
+
+   -name : Update
+    yum: update_cache=yes
+
+   -name : Add Datastarx
+    file : path=/etc/yum.repos.d/datastax.repo state=touch 
+    copy: content="{{ data.repo}}" dest=/etc/yum.repos.d/datastax.repo
+
+   -name : Install Cassandra
+    yum : name={{item}} state=present
+    with_items:
+         -dsc20
+         -cassandra

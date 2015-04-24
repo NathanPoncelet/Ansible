@@ -1,0 +1,10 @@
+#Nathan Poncelet
+#Here are configured the ansible hosts
+
+[cass-seed]
+ansible_ssh_host=192.168.0.10 ansible_ssh_user=root ansible_python_interpreter=/usr/local/bin/python ansible_shell_type=bash
+
+[Cass-node]
+ansible_ssh_host=192.168.0.11 ansible_ssh_user=root ansible_python_interpreter=/usr/local/bin/python ansible_shell_type=bash
+ansible_ssh_host=192.168.0.12 ansible_ssh_user=root ansible_python_interpreter=/usr/local/bin/python ansible_shell_type=bash
+ansible_ssh_host=192.168.0.13 ansible_ssh_user=root ansible_python_interpreter=/usr/local/bin/python ansible_shell_type=bash
